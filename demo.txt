@@ -1,0 +1,73 @@
+:<LeeZH> Hello there!
+:<LeeZH> Welcome to Vindot - Visual Novel Godot - a tech demo for dialogue trees, written in the Godot engine.
+:<LeeZH> It is largely inspired by Ren'py and Inklewriter but designed so that it works better with how Godot works internally.
+:<LeeZH> The core of the program is `script.gd'. It interprets the dialogue script and processes its logic.
+:<LeeZH> It's not a proper library - you're probably going to have to modify it to suit your game better.
+:<LeeZH> Sorry for the mess. I mostly threw this together for the game I'm making.
+:<LeeZH> The main point is that you can do lots of writing in pure text without having to faff about with various user interfaces.
+
+:<LeeZH> So here is a quick rundown of the features.
+:<LeeZH> Firstly, you can define multiple speakers in a ...
+:<Stranger> Yeah! So that you can have multiple people talking in a conversation!
+:<LeeZH> ...
+:<LeeZH> Moving on, you can also leave out the speaker.
+: Such as this here.
+: This is useful for narrative parts.
+
+:<LeeZH> Also, you can give players choices
+> As a list of things
+	$ choice_one
+	: You picked the first option
+> That you can pick
+	$ choice_two
+	: You picked the second option
+:<LeeZH> Pretty neat isn't it?
+
+@label_intro
+:<LeeZH> There are also labels.
+> Let's try it out!
+	#jump label_go
+> I'm done for now
+	#jump label_done
+
+@label_go
+:<LeeZH> So you can jump back and forth in different parts of the script!
+$ jump + 1
+#if jump > 4
+	:<LeeZH> You know, I think there's something wrong here.
+	:<LeeZH> Some sort of anomaly, but I can't figure out what.
+	:<LeeZH> Maybe if I rewound time so I can see it better ...
+	:<LeeZH> Nah, that'd be crazy.
+	: *crash*
+	:<LeeZH> Hey! Cat! What are you doing!
+	: *crash*
+	:<LeeZH> Get off the table! Stay away from that button! It's da...
+	: ...
+#elif jump > 2
+	:<LeeZH> Whoa, I'm getting a bit of deja'vu here.
+	:<LeeZH> Maybe I should hit that rewind button ...
+#else
+	:<LeeZH> Let's rewind a bit.
+#jump label_intro
+
+@label_done
+:<LeeZH> And finally, it's a bit clunky, but there are variables!
+#if choice_one
+	:<LeeZH> For instance, I can see that you picked the first choice earlier.
+#elif choice_two
+	:<LeeZH> For instance, I can see that you picked the second choice earlier.
+:<LeeZH> I haven't actually gotten around embedding the variables in the text itself.
+:<LeeZH> That said, I'd imagine it'd work different depending on how you're planning on using this.
+:<LeeZH> Heck, for simple visual novels, such as this, it might not even be necessary.
+
+:<LeeZH> So now, you're probably wondering why not just write a plain GDScript file?
+> Yeah, I'm interested
+> Nah, don't really care
+	:<Stranger> Tell us anyway!
+:<LeeZH> Okay. So, I could write the whole thing with coroutines and all that jazz.
+:<LeeZH> Gives me full access to the entire engine. Great, right?
+:<LeeZH> Now, what if I wanted to save the game mid-conversation? You can't with GDScript.
+:<LeeZH> With this, as long as you remember the script being opened and two variables `data' and `node_pos' you can easily resume from where you left off.
+:<LeeZH> Neat, huh?
+:<LeeZH> Well, that's all for now. Bye!
+: [Close this window to leave, I haven't implemented function callbacks yet]

@@ -1,0 +1,117 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://font.fnt" type="Font" id=2]
+[ext_resource path="res://dialogue.gd" type="Script" id=1]
+
+[node name="dialogue" type="Control"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+script/script = ExtResource( 1 )
+__meta__ = { "__editor_plugin_screen__":"Script", "__editor_plugin_states__":{ "2D":{ "ofs":Vector2( -185.053, -113.255 ), "snap_grid":true, "snap_offset":Vector2( 0, 0 ), "snap_pixel":false, "snap_relative":false, "snap_rotation":false, "snap_rotation_offset":0, "snap_rotation_step":0.261799, "snap_show_grid":false, "snap_step":Vector2( 10, 10 ), "zoom":1.10804 }, "3D":{ "ambient_light_color":Color( 0.15, 0.15, 0.15, 1 ), "default_light":true, "default_srgb":false, "deflight_rot_x":0.942478, "deflight_rot_y":0.628319, "fov":45, "show_grid":true, "show_origin":true, "viewport_mode":1, "viewports":[ { "distance":4, "listener":true, "pos":Vector3( 0, 0, 0 ), "use_environment":false, "use_orthogonal":false, "x_rot":0, "y_rot":0 }, { "distance":4, "listener":false, "pos":Vector3( 0, 0, 0 ), "use_environment":false, "use_orthogonal":false, "x_rot":0, "y_rot":0 }, { "distance":4, "listener":false, "pos":Vector3( 0, 0, 0 ), "use_environment":false, "use_orthogonal":false, "x_rot":0, "y_rot":0 }, { "distance":4, "listener":false, "pos":Vector3( 0, 0, 0 ), "use_environment":false, "use_orthogonal":false, "x_rot":0, "y_rot":0 } ], "zfar":500, "znear":0.1 }, "Anim":{ "visible":false } }, "__editor_run_settings__":{ "custom_args":"-l $scene", "run_mode":0 }, "_edit_lock_":true }
+
+[node name="message" type="Control" parent="."]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+
+[node name="panel" type="Panel" parent="message"]
+
+anchor/top = 1
+anchor/right = 1
+anchor/bottom = 1
+margin/top = 130
+focus/ignore_mouse = true
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+
+[node name="text" type="Label" parent="message/panel"]
+
+margin/left = 20
+margin/top = 20
+margin/right = 780
+margin/bottom = 110
+rect/min_size = Vector2( 0, 90 )
+focus/ignore_mouse = true
+focus/stop_mouse = false
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 2 )
+text = "Text"
+autowrap = true
+percent_visible = 1
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="speaker" type="Panel" parent="message/panel"]
+
+margin/top = -40
+margin/right = 210
+focus/ignore_mouse = true
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+
+[node name="text" type="Label" parent="message/panel/speaker"]
+
+anchor/right = 1
+anchor/bottom = 1
+margin/left = 20
+margin/top = 10
+margin/right = 20
+margin/bottom = 5
+focus/ignore_mouse = true
+focus/stop_mouse = false
+size_flags/horizontal = 2
+custom_fonts/font = ExtResource( 2 )
+text = "Speaker"
+percent_visible = 1
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="choices" type="CenterContainer" parent="."]
+
+visibility/visible = false
+margin/right = 800
+margin/bottom = 600
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+use_top_left = false
+
+[node name="list" type="VBoxContainer" parent="choices"]
+
+margin/left = 250
+margin/top = 282
+margin/right = 550
+margin/bottom = 318
+rect/min_size = Vector2( 300, 0 )
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+custom_constants/separation = 10
+alignment = 0
+
+[node name="button" type="Button" parent="choices/list"]
+
+margin/right = 300
+margin/bottom = 19
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+custom_fonts/font = ExtResource( 2 )
+toggle_mode = false
+flat = false
+
+
